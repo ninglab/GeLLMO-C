@@ -1,0 +1,24 @@
+{
+    "description": "Template used by mistral and llama models for optimization tasks with a threshold for property change.",
+    "system_prompt": "You are an expert medicinal chemist specializing in molecular optimization. You understand how structural modifications affect key ADMET properties and inhibitions of common receptor targets like DRD2.",
+    "task_prompt_no_explain": "Your task is to modify the given molecule to adjust specific molecular properties so that the resulting molecule satisfies the given target thresholds. Keep structural changes as minimal as possible. Use the examples (if provided) as a guide. Your response should only contain a valid SMILES representation of the modified molecule enclosed with <SMILES> </SMILES> tag.",
+    "task_prompt_llasmol": "Modify the molecule <SMILES> {input_smiles} </SMILES> to {opt_prompt} Keep structural changes as minimal as possible.",
+    "task_prompt": "Your task is to modify the given molecule to adjust specific molecular properties so that the resulting molecule satisfies the given target thresholds. Keep structural changes as minimal as possible. Use the examples (if provided) as a guide. Your response should first contain a valid SMILES representation of the modified molecule enclosed with <SMILES> </SMILES> tag, followed by a brief explanation for the proposed modification.",
+
+    "base_inst": "Your task is to modify the given molecule to adjust specific molecular properties so that the resulting molecule satisfies the given target thresholds. Keep structural changes as minimal as possible. Your response should only contain a valid SMILES representation of the modified molecule enclosed in <SMILES> </SMILES> tags. The property values of the new molecule should meet or exceed the specified targets enclosed in <THRESHOLD> </THRESHOLD> tags.",
+    "instructions": [
+        "Adjust the molecular structure to ensure that each specified property reaches the corresponding threshold listed in <THRESHOLD> </THRESHOLD>. Minimize structural changes and try to maintain the core scaffold. Return the resulting molecule using <SMILES> </SMILES> tags.",
+        "Alter the molecule to satisfy the provided property thresholds in <THRESHOLD> </THRESHOLD>. Preserve the core scaffold and make as few structural changes as possible. Output the SMILES of the new molecule, enclosed in <SMILES> </SMILES>.",
+        "Update the given molecule so that the specified properties fall within acceptable ranges defined by the values in <THRESHOLD> </THRESHOLD>. Maintain as much of the original structure as possible. Output only the modified molecule enclosed in <SMILES> </SMILES> tags.",
+        "Modify the molecule to bring its properties to at least the levels defined in <THRESHOLD> </THRESHOLD>. Avoid excessive modifications and preserve the core scaffold. Output only the resulting molecule's SMILES wrapped in <SMILES> </SMILES>.",
+        "Edit the molecular structure so that all required properties match or exceed the threshold values defined in <THRESHOLD> </THRESHOLD>. Try to retain the core scaffold. Output only the SMILES representation of the optimized molecule enclosed in <SMILES> </SMILES>."
+    ],
+
+    "adjust_prompt": [
+        "{change} {property} to be {direction} <THRESHOLD> {value} </THRESHOLD>",
+        "{change} the value of {property} to be {direction} <THRESHOLD> {value} </THRESHOLD>",
+        "{change} {property} aiming for {direction} <THRESHOLD> {value} </THRESHOLD>",
+        "{change} {property} so it is {direction} <THRESHOLD> {value} </THRESHOLD>",
+        "{change} {property} with a goal of {direction} <THRESHOLD> {value} </THRESHOLD>"
+    ]
+}
