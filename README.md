@@ -42,7 +42,7 @@ bash inference.sh $base_model NingLab/C-MuMOInstruct $lora_weights $output_dir $
 ```
 - `$base_model` specifies the base model (either `Mistral-7B-Instruct-v0.3` or `Llama-3.1-8B-Instruct`)
 - `$data_dir` specifies the path to the local data directory
-- `$lora_weights` specifies the path to the instruction-tuned model
+- `$lora_weights` specifies the local path or the HuggingFace model hub containing the adapter weights of the instruction-tuned model
 - `$output_dir` specifies the output path where the LLM generated responses will be stored in JSON format
 - `$task` specifies the 3/4/5-lettered task ID as listed in the paper (i.e., BPQ, BDPQ, etc..)
 - `$num_seq` specifies the number of generated responses for each prompt (we set it to 20 in our experiments)
@@ -50,5 +50,5 @@ bash inference.sh $base_model NingLab/C-MuMOInstruct $lora_weights $output_dir $
 
 Example: to run a Mistral-7B tuned LLM on the task BDPQ under the seen instruction setting:
 ```
-bash inference.sh Mistral-7B-Instruct-v0.3 NingLab/C-MuMOInstruct $lora_weights $output_dir BDPQ 20 seen
+bash inference.sh Mistral-7B-Instruct-v0.3 NingLab/C-MuMOInstruct NingLab/GeLLMO-P10-Mistral /tmp/ BDPQ 20 seen
 ```
