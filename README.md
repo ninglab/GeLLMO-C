@@ -12,7 +12,7 @@ The dataset with all training and test JSON files is available in [Huggingface](
 
 ## Models
 
-The instruction-tuned model checkpoints will be uploaded to HuggingFace soon. 
+The instruction-tuned model checkpoints are uploaded to [HuggingFace](https://huggingface.co/collections/NingLab/controllable-gellmo-6838bf821ff1973b73ed77e6). 
 
 
 ## Training
